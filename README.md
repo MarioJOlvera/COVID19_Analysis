@@ -15,7 +15,8 @@ For this we performed two methods.
 By the time we built the groups, we did some “country_name” changes so both names in the list and the request matched. Eg. From “United Kingdom” to “UK”.
 Once the all the groups were done, we had to transform all the numeric variables into integer values, since all the data was string datatype. For this we created a function “replace(region_list)” to do the task.
 
-Load
+LOAD
+
 Two methods were proposed to load the data to Mongo after the transformation was made:
 1.    The first one consisted of creating a single dictionary that contains each of the regions and groups. Then, the connection to mongo was established and the database was created. It should be mentioned, that inside of this database, only a single collection was created, and by using the update() method from pymongo, the dictionary with all the regions and groups was loaded. It must be said that with this method the way to extract the data from the Mongo database is by using the find() method from pymongo, and then iterating on this element.
 2.    The second method proposed was to create a collection for each region and group inside the database. Then, by using the method  insert_one() from pymongo, an iteration was made on each list to load the data. Unlike from the first method, the way to query documents, in this case, is by using directly pymongo query and projection operators.
